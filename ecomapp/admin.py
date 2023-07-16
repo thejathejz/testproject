@@ -1,12 +1,15 @@
 from django.contrib import admin
 from .models import Customer,Product
 # Register your models here.
-admin.site.register(Customer)
-    lst_display = ('name', 'price', 'description', 'isActive', 'registrationDate')
-    list_filter = ('isActive',)
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('user', 'name', 'email', 'is_active', 'phone','address')
+    list_filter = ('is_active',)
     search_fields = ('name', 'description')
 
-admin.site.register(Product)iiiiiiiiiiiiiiiiiiii
-    list_display = ('name', 'price', 'description', 'isActive', 'registrationDate')
-    list_filter = ('isActive',)
-    search_fields = ('name', 'description')iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'description', 'is_active', 'registrationDate')
+    list_filter = ('is_active',)
+    search_fields = ('name', 'description')
