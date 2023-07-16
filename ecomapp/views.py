@@ -51,7 +51,7 @@ class ProductRetrieveUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_update(self, serializer):
         instance = serializer.save()
-        if not instance.is_actiii:
+        if not instance.is_active:
             # Check if the product was registered less than 2 months ago
             registration_date = instance.registrationDate
             two_months_ago = timezone.now() - timedelta(days=60)
